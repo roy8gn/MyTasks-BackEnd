@@ -74,7 +74,6 @@ router.post('/toDos', async (req, res) => {
   const {userID, task} = req.body
   try{
     let user = await User.findById(userID);
-    console.log(user)
     user.toDos.push(task);
     await user.save();
     res.json({added: true})
@@ -130,7 +129,6 @@ router.post('/events', async (req, res) => {
   const {userID, task} = req.body
   try{
     let user = await User.findById(userID);
-    console.log(user)
     user.events.push(task);
     await user.save();
     res.json({added: true})
@@ -186,7 +184,6 @@ router.post('/projects', async (req, res) => {
   const {userID, task} = req.body
   try{
     let user = await User.findById(userID);
-    console.log(user)
     user.projects.push(task);
     await user.save();
     res.json({added: true})
@@ -242,7 +239,6 @@ router.post('/meetings', async (req, res) => {
   const {userID, task} = req.body
   try{
     let user = await User.findById(userID);
-    console.log(user)
     user.meetings.push(task);
     await user.save();
     res.json({added: true})

@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const port = 3001
-const checkcheck = true
 const app = express();
 
 
