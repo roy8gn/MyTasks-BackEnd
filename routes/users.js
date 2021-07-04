@@ -84,8 +84,9 @@ router.post('/toDos', async (req, res) => {
 })
 
 // Edit a ToDo
-router.patch('/toDos', async (req, res) => {
+router.put('/toDos', async (req, res) => {
   const {userID, task} = req.body
+  console.log(req.body)
   try{
     let user = await User.findById(userID);
     let taskArray = user.toDos
@@ -139,7 +140,7 @@ router.post('/events', async (req, res) => {
 })
 
 // Edit an Event
-router.patch('/events', async (req, res) => {
+router.put('/events', async (req, res) => {
   const {userID, task} = req.body
   try{
     let user = await User.findById(userID);
@@ -194,7 +195,7 @@ router.post('/projects', async (req, res) => {
 })
 
 // Edit a Project
-router.patch('/projects', async (req, res) => {
+router.put('/projects', async (req, res) => {
   const {userID, task} = req.body
   try{
     let user = await User.findById(userID);
@@ -249,7 +250,7 @@ router.post('/meetings', async (req, res) => {
 })
 
 // Edit a Meeting
-router.patch('/meetings', async (req, res) => {
+router.put('/meetings', async (req, res) => {
   const {userID, task} = req.body
   try{
     let user = await User.findById(userID);
