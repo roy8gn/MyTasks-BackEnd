@@ -23,6 +23,7 @@ app.use(cors());
 const usersRouter = require('./routes/users')
 app.use('/', usersRouter)
 
+app.get('/', (req, res) => {res.send("OK")})
 app.listen(port, () => {
     console.log('Server is running on port ' + port + '.')
 })
