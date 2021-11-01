@@ -6,7 +6,6 @@ const User = require('../models/User');
 
 // Sign In
 router.post('/', async (req, res) => {
-    //console.log(req.body);
     const {email, password} = req.body
     const users = await User.find({"email": email})
     if(users.length===0){
@@ -36,15 +35,12 @@ router.post('/', async (req, res) => {
 // Sign Up
 router.post('/signUp', async (req, res) => {
     const {email, password, userName} = req.body
-    console.log(email + " " + password + " " + userName);
     const users = await User.find({"email": email})
-    console.log(users.length)
     if(users.length>0){
       res.json({ registered: false })
     }
     else{
       bcrypt.hash(password, 10, function(err, hashedPassword) { // Hash password
-        console.log(password + " " + hashedPassword)
         const user = new User({
           email: email,
           password: hashedPassword,
@@ -86,7 +82,6 @@ router.post('/toDos', async (req, res) => {
 // Edit a ToDo
 router.put('/toDos', async (req, res) => {
   const {userID, task} = req.body
-  console.log(req.body)
   try{
     let user = await User.findById(userID);
     let taskArray = user.toDos
